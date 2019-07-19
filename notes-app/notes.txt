@@ -1,2 +1,0 @@
-This file was created by node.js !
-Hello, my name is Arek and i'm freelance full-stack developer
