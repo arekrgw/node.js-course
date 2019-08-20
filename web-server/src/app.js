@@ -2,10 +2,10 @@ const path = require("path");
 const express = require("express");
 const hbs = require("hbs")
 
-hbs.par
 
 const app = express();
 
+//Paths 
 const viewsPath = path.join(__dirname, "../templates/views")
 const partialsPath = path.join(__dirname, "../templates/partials")
 
@@ -49,8 +49,23 @@ app.get("/weather", (req, res) => {
     })
 });
 
+app.get("/help/*", (req, res) => {
+    res.render("404", {
+        title: "Error 404",
+        name: "Arek",
+        error: "Help article not found"
+    })
+})
 
+app.get("*", (req, res) => {
+    res.render("404", {
+        title: "Error 404",
+        name: "Arek",
+        error: "Page not found"
+    })
+})
 
+//Setup listening on port 3000
 app.listen(3000, () => {
     console.log('Server is up on port 3000')
 });
