@@ -24,17 +24,21 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true, useUnifiedTopology: 
     //     console.log(error);
     // })
 
-    db.collection("tasks").updateMany({
-        completed: false
-    },
-    {
-        $set: {
-            completed: true
-        }
-    }).then(({modifiedCount}) => {
-        console.log(modifiedCount);
-    }).catch(error => {
-        console.log(error);
+    // db.collection("tasks").updateMany({
+    //     completed: false
+    // },
+    // {
+    //     $set: {
+    //         completed: true
+    //     }
+    // }).then(({modifiedCount}) => {
+    //     console.log(modifiedCount);
+    // }).catch(error => {
+    //     console.log(error);
+    // })
+
+    db.collection("tasks").deleteOne({completed: false}).then(res => {
+        console.log("DOne");
     })
 
 })
